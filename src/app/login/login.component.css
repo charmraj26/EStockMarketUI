@@ -1,0 +1,54 @@
+.headimage{
+    width: 350px;
+    height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bg{
+    background-image: url("/assets/img/stoc.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    
+}
+.cardim{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.tablesize{
+    margin-left: 25%;
+    width: 50%;
+    background-color: aqua;
+    text-align: center;
+}
+
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+
+.regbtn{
+    color: white;
+}
+
+.eyebtn{
+    border: none;
+    background: none;
+}
+.mat-tool{
+    background-color: yellow;
+}
+.mat-tool button{
+    background-color: yellow;
+}
+.pointer {
+    cursor: pointer;
+}

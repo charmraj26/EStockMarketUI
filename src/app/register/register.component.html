@@ -1,0 +1,43 @@
+<div class="container-fluid col-sm-12 bg ">
+  <div class="log card bg-light mx-auto cardim ">
+    <div class="card-body">
+      <img class="headimages pt-1" [src]="mycardimage" alt="">
+      <div>
+        <form class="pt-4" [formGroup]="registerForm">
+          <mat-form-field appearance="legacy">
+            <mat-label> Username</mat-label>
+            <input matInput placeholder="Username" formControlName="userName" required>
+            <mat-error *ngIf="r['userName'].getError('required')!=null">Enter Username</mat-error>
+            <!-- <mat-error *ngIf="r['userName'].getError('minlength')!=null">UserName should be atleast 6 letters
+            </mat-error> -->
+          </mat-form-field>
+          <mat-form-field class="pt-3" appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input matInput type="password"  placeholder="Password" formControlName="passWord"
+            [type]="hideEyep ? 'password' : 'text'">
+            <span matSuffix (click)="hideEyep=!hideEyep" class="material-icons eyebtn pointer"> 
+              {{hideEyep ? 'visibility_off' : 'visibility'}}</span>
+            <mat-error *ngIf="r['passWord'].getError('required')!=null">Enter Password</mat-error>
+          </mat-form-field>
+          <mat-form-field class="pt-3" appearance="legacy">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" placeholder="Confirm Password" formControlName="surepassWord" 
+            [type]="hideEyesp ? 'password' : 'text'">
+           <span matSuffix (click)="hideEyesp=!hideEyesp" class="material-icons eyebtn pointer"> 
+              {{ hideEyesp ? 'visibility_off' : 'visibility'}} </span>
+            <mat-error *ngIf="r['surepassWord'].getError('required')!=null">Enter Confirm Password</mat-error>
+            <mat-error *ngIf="r['surepassWord'].getError('MustMatch')!=null">Password Mismatch</mat-error>
+          </mat-form-field>
+          <div class="mb-3 pt-3">
+            <button type="button" class="btn btn-clear ms-5" routerLink="/login">
+              <mat-icon class="icon">keyboard_backspace</mat-icon>CANCEL
+            </button>
+            <button class="btn btn-success me-4 ms-4" (click)="userregister()">
+              <mat-icon class="icon">done </mat-icon>REGISTER
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

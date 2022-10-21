@@ -1,0 +1,45 @@
+<div class="container-fluid overall">
+  <div class="row">
+    <div>
+      <button class="btn btnback btn-clear" routerLink="/managestock">
+        <mat-icon class=" keyboard_backspace icon">keyboard_backspace</mat-icon>BACK
+      </button>
+    </div>
+    <div class="col-12 heads mx-auto">
+      <div class="headscolor mx-auto">
+        <p>Add/Edit Stock</p>
+        <p class="light">Complete your Stock</p>
+      </div>
+      <div>
+        <form [formGroup]="stockForm" novalidate>
+          <div class="row">
+            <div class="col-md-4 col-sm-6 mt-5">
+              <mat-form-field appearance="legacy">
+                <mat-label>Company</mat-label>
+                <mat-select placeholder="Company" formControlName="companyCode" #companyCode>
+                  <!-- <mat-option  value="0">companyCode</mat-option> -->
+                  <mat-option *ngFor="let stock of stockValue" [value]="stock.companyCode">{{stock.companyCode}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="s['companyCode'].getError('required')!=null">Required Company</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-4 col-sm-6 mt-5">
+              <mat-form-field appearance="legacy">
+                <mat-label>Stock Price</mat-label>
+                <input matInput type="number" placeholder="0" formControlName="stockPrice" #stockPrice>
+                <span matPrefix> &#8377;&nbsp;</span>
+                <span matSuffix>.00</span>
+                <mat-error *ngIf="s['stockPrice'].getError('required')!=null">Required Stock Price</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div>
+            <button (click)="addStock()" type="submit" class="btn savebtn mt-5 mb-5">
+              <mat-icon class="icon">done</mat-icon>SAVE
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

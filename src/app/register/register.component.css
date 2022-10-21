@@ -1,0 +1,33 @@
+.headimages{
+    width: 350px;
+    height: 50px;
+    display: block;
+margin-left: auto;
+margin-right: auto;
+}
+.cardim{
+    width: 400px;
+    height: 400px;
+    
+}
+.bg{
+    background-image: url("/assets/img/stoc.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+.log{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.eyebtn{
+    border: none;
+    background:local;
+}
+.pointer {
+    cursor: pointer;
+}

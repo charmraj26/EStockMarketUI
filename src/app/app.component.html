@@ -1,0 +1,78 @@
+<mat-sidenav-container>
+    <mat-sidenav *ngIf="isOpen" mode="side" opened>
+        <span><img class="himg mt-3" [src]="dasheadimg" alt="sideheader"></span>
+        <mat-nav-list class="listwdt">
+            <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+                <mat-icon>dashboard</mat-icon><span class="iconwdt"></span><label>Dashboard</label>
+            </a>
+            <a mat-list-item routerLink="/managecompany" routerLinkActive="active">
+                <mat-icon>library_books</mat-icon><span class="iconwdt"></span><label>Manage Company
+                </label>
+            </a>
+            <a mat-list-item routerLink="/managestock" routerLinkActive="active">
+                <mat-icon>content_paste</mat-icon><span class="iconwdt"></span><label>Manage Stock </label>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div *ngIf="isOpen">
+            <mat-toolbar class="topcolor">
+                <mat-toolbar-row>
+                    <span class="spanbtn"></span>
+                    <button class="btncolor" (click)="logoutUser()" mat-stroked-button>
+                        <mat-icon>keyboard_backspace</mat-icon>LOGOUT
+                    </button>
+                </mat-toolbar-row>
+            </mat-toolbar>
+        </div>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+    <div class="row ">
+        <div class="col-12 bg-light spacealgn">
+            
+            <mat-sidenav-container>
+                <mat-sidenav *ngIf= "isOpen" mode="side" opened class="col-2">
+                    <span *ngIf= "isOpen"><img class="himg mt-3" [src]="dasheadimg" alt="headne"></span>
+                    <mat-nav-list class="listwdt">
+                        <a mat-list-item routerLink="/dashpage">
+                            <mat-icon>dashboard</mat-icon><span class="iconwdt"></span><label>Dashboard</label>
+                        </a>
+                        <a mat-list-item routerLink="/dashpage">
+                            <mat-icon>library_books</mat-icon><span class="iconwdt"></span><label>Manage Company</label>
+                        </a>
+                        <a mat-list-item routerLink="/dashpage">
+                            <mat-icon>content_paste</mat-icon><span class="iconwdt"></span><label>Manage Stock</label>
+                        </a>
+                    </mat-nav-list>
+                </mat-sidenav>
+                <mat-sidenav-content [class]= "isOpen ? 'col-10' : 'col-12'">
+                    <div *ngIf= "isOpen" class=" bg-light spacealgn">
+                        <mat-toolbar class="topcolor">
+                            <mat-toolbar-row>
+                                <span class="spanbtn"></span>
+                                <button routerLink="/login" class="btncolor" mat-stroked-button>
+                                    <mat-icon>keyboard_backspace</mat-icon>LOGOUT
+                                </button>
+                            </mat-toolbar-row>
+                        </mat-toolbar>
+                    </div>
+                    <router-outlet></router-outlet>
+                </mat-sidenav-content>
+            </mat-sidenav-container>
+        </div>
+    </div>
+</div> -->

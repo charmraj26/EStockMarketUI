@@ -1,0 +1,67 @@
+<div class="container-fluid overall">
+  <div class="row">
+    <div>
+      <button class="btn btnback btn-clear" routerLink="/managecompany">
+        <mat-icon class="keyboard_backspace icon">keyboard_backspace</mat-icon>BACK
+      </button>
+    </div>
+    <div class="col-12 heads mx-auto">
+      <div class="headscolor mx-auto">
+        <p>Add/Edit Company</p>
+        <p class="light">Complete your Company</p>
+      </div>
+      <div>
+        <form [formGroup]="addForm" novalidate>
+          <div class="row">
+            <div class="col-md-4 col-sm-6 mt-5">
+              <mat-form-field appearance="legacy">
+                <mat-label>Company Code</mat-label>
+                <input matInput placeholder="Company Code" formControlName="companyCode" #companyCode>
+                <mat-error *ngIf="c['companyCode'].getError('required')!=null">Company Code is required</mat-error>
+              </mat-form-field>
+              <mat-form-field  class="mt-5" appearance="legacy">
+                <mat-label>Company Ceo</mat-label>
+                <input matInput placeholder="Company Ceo" formControlName="companyCeo" #companyCeo>
+                <mat-error *ngIf="c['companyCeo'].getError('required')!=null">Company Ceo is required</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="legacy" class="mt-5">
+                <mat-label>Stock Exchange</mat-label>
+                <mat-select placeholder="Stock Exchange" formControlName="stockExchange" #stockExchange>
+                  <mat-option *ngFor="let item of select" [value]='item.id'>{{item.name}}</mat-option>
+                  <!-- <mat-option [value]=2>BSE</mat-option> -->
+                </mat-select>
+                <mat-error *ngIf="c['stockExchange'].getError('required')!=null">Stock Exchange is required</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-4 col-sm-6 mt-5">
+              <mat-form-field appearance="legacy">
+                <mat-label>Company Name</mat-label>
+                <input matInput placeholder="Company Name" formControlName="companyName" #companyName>
+                <mat-error *ngIf="c['companyName'].getError('required')!=null">Company Name is required</mat-error>
+              </mat-form-field>
+              <mat-form-field class="mt-5" type="email" appearance="legacy">
+                <mat-label>Company Website</mat-label>
+                <input matInput placeholder="Company Website" formControlName="companyWebsite" #companyWebsite>
+                <mat-error *ngIf="c['companyWebsite'].getError('required')!=null">Company Website is required
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="legacy" class="mt-5">
+                <mat-label>Company TurnOver</mat-label>
+                <input matInput type="number" placeholder="0" formControlName="companyTurnover" #companyTurnover>
+                <span matPrefix> &#8377;&nbsp;</span>
+                <span matSuffix>.00</span>
+                <mat-error *ngIf="c['companyTurnover'].getError('required')!=null">Min 10Cr
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <button class="btn savebtn mt-5 mb-3" (click)="saveCompany();">
+                <mat-icon class="icon">done </mat-icon>SAVE
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

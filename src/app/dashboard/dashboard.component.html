@@ -1,0 +1,103 @@
+<div class="container-fluid overall col-sm-12">
+    <div class="row">
+        <div class="mat-elevation-z10 create mt-5 mx-auto">
+            <div class="row pt-4 pb-4" *ngFor="let item of latestStockPrice">
+                <div class="col-sm-9" >
+                    <h3>{{item.companyName}}</h3>
+                </div>
+                    <div class="col-sm-2">
+                        <h3>{{item.latestStockPrice}}</h3>
+                    </div> 
+               </div>
+               
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid hed ">
+    <div class="row ">
+        <div class="col-sm-2 bg-light spacealgn">
+            <img class="himg mt-3" [src]="dasheadimg" alt="">
+            <mat-sidenav-container>
+                <mat-sidenav mode="side" opened>
+                    <mat-nav-list class="listwdt">
+                        <a mat-list-item [routerLink]="'/dashpage'">
+                            <mat-icon>dashboard</mat-icon><span class="iconwdt"></span><label>Dashboard</label>
+                        </a>
+                        <a mat-list-item>
+                            <mat-icon>library_books</mat-icon><span class="iconwdt"></span><label>Manage Company</label>
+                        </a>
+                        <a mat-list-item>
+                            <mat-icon>content_paste</mat-icon><span class="iconwdt"></span><label>Manage Stock</label>
+                        </a>
+                    </mat-nav-list>
+                </mat-sidenav>
+                <mat-sidenav-content>
+                    <p style="height:85vh"></p>
+                </mat-sidenav-content>
+            </mat-sidenav-container>
+        </div>
+        <div class="col-sm-10 bg-light spacealgn">
+            <mat-toolbar class="topcolor">
+                <mat-toolbar-row>
+                    <span class="spanbtn"></span>
+                    <button routerLink="/login" class="btncolor" mat-stroked-button>
+                        <mat-icon>keyboard_backspace</mat-icon>LOGOUT
+                    </button>
+                </mat-toolbar-row>
+            </mat-toolbar>
+            <div class="ftable">
+                <table class="table table-trapped tablesize">
+                    <thead class="tablehead">
+                        <tr>
+                            <th>UserName</th>
+                            <th>UserPassword</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tablebody">
+                        <tr>
+                            <td>{{updateUserInfo.username}}</td>
+                            <td>{{updateUserInfo.password}}</td>
+                            <td><button class="btn" (click)="getCurrentUser()">
+                                    <mat-icon>visibility</mat-icon>
+                                </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div> -->

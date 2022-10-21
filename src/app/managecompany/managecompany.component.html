@@ -1,0 +1,51 @@
+<div class="container-fluid overall">
+    <div class="row">
+        <div class="col-sm-12 heads mx-auto">
+            <div class="headscolor mx-auto">
+                <p>Manage Company</p>
+                <p class="light">Add/Edit Company</p>
+            </div>
+            <div class="mat-elevation-z10 create mt-5 mx-auto">
+                <span class="material-icons bar">poll</span>
+                <button class="btncolor btn btn-success" routerLink="/addcompany">
+                    <mat-icon class="icon">add</mat-icon>COMPANY
+                </button>
+            </div>
+            <div>
+                <table class="table table-trapped ftable mt-5 mx-auto">
+                    <thead class="tablehead">
+                        <tr>
+                            <th>Company Code</th>
+                            <th>Company Name</th>
+                            <th>company Ceo</th>
+                            <th>Company Website</th>
+                            <th>Stock Exchange</th>
+                            <th>Company Turnover</th>
+                            <th>Latest Stock Price</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tablebody">
+                        <tr *ngFor="let updateUserInfo of companyList" nowrap>
+                            <td>{{updateUserInfo.companyCode}}</td>
+                            <td>{{updateUserInfo.companyName}}</td>
+                            <td>{{updateUserInfo.companyCEO}}</td>
+                            <td>{{updateUserInfo.companyWebsite}}</td>
+                            <td>{{updateUserInfo.stockExchange}}</td>
+                            <td>{{updateUserInfo.companyTurnover}}</td>
+                            <td>{{updateUserInfo.latestStockPrice}}</td>
+                            <td>
+                                <button class="btn btnsize" (click)="deleteCompany(updateUserInfo.companyCode)">
+                                    <!-- <mat-icon class="del">delete_outline</mat-icon> -->
+                                    <mat-icon class="del">delete_outline</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <div *ngIf="companyList.length<1" class="cond">
+                        <p colspan="8">No Data Available</p>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

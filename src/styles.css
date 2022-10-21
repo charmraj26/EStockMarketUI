@@ -1,0 +1,81 @@
+html, body { height: 100%; }
+::selection {
+  color: white;
+  background: green;
+}
+body{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.icon{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin-right: 5px;
+    vertical-align:bottom;
+  }
+  
+mat-form-field {
+    width: 100%;
+  }
+
+  button{
+  vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+  }
+
+.mat-dialog-container{
+ background-color: pink;
+ color:green;
+ border: 1px solid green;
+ border-radius: 30px;
+}
+.popstyle{
+  width: 300px;
+}
+
+.overall{
+  margin-top: 100px !important;
+  height: 78vh;
+}
+
+.heads{
+  width: 97%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.headscolor{
+  width: 100%;
+  background-color:red;
+  color: white;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-top: -15px;
+  padding: 10px;
+  position: relative;
+  height: 75px;
+}
+
+.light{
+  opacity: .7;
+}
+
+.failure-snackbar{
+  background-color: red;
+  color: white;
+}
+
+.btnfail-snackbar button{
+  color: white;
+
+}
+
+.success-snackbar{
+  background-color: green;
+  color: white;
+}
+
+.btnsuc-snackbar button{
+  color: white;
+}

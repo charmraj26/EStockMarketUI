@@ -1,0 +1,38 @@
+<div class="bg">
+  <div class="card bg-light cardim">
+    <div class="pt-4 card-body">
+      <img class="headimage" [src]="mycardimage" alt="">
+      <div>
+        <form [formGroup]="loginForm" novalidate >
+          <!-- User Name Form Control -->
+          <mat-form-field class="pt-5" appearance="legacy">
+            <mat-label> Username</mat-label>
+            <input matInput placeholder="Username" formControlName="userName">
+            <mat-error *ngIf="f['userName'].getError('required')!=null">Enter Username</mat-error>
+          </mat-form-field>
+          <!-- User Name Form Control -->
+          <!-- Password Form Control -->
+          <mat-form-field class="pt-4 " appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input matInput type="Password" formControlName="passWord" placeholder="Password"
+              [type]="hideEye ? 'password':'text'">
+             <span class="material-icons eyebtn pointer" matSuffix (click)="hideEye = !hideEye">
+              {{hideEye ? 'visibility_off' : 'visibility'}}</span>
+            <mat-error *ngIf="f['passWord'].getError('required')!=null">Enter Password</mat-error>
+          </mat-form-field>
+          <!-- Password Form Control --> 
+          <!-- Action Buttons -->
+          <div class="mb-3 pt-5">
+            <button type="button" class="btn btn-info ms-5 regbtn" routerLink="/register">
+              <mat-icon class="icon">person_add</mat-icon>REGISTER
+            </button>
+            <button class="btn btn-success me-5 ms-4" (click)="loginuser();">
+              <mat-icon class="icon">power_settings_new</mat-icon>LOGIN
+            </button>
+          </div>
+          <!-- Action Buttons -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
