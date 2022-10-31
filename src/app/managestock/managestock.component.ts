@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { CompanyService } from '../managecompany/company.service';
 import { StockService } from './stock.service';
-import {MomentDateAdapter} from '@angular/material-moment-adapter';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
 
 export const MY_FORMATS = {
   display: {
@@ -27,15 +27,13 @@ export const MY_FORMATS = {
 })
 export class ManagestockComponent implements OnInit {
 
+  public stockUserSubscription: any;
   public stockdata: any;
   public mangStockForm: any;
-  public addstockForm: any;
-  public stockUserSubscription: any;
-  public averageStock:any;
-  public stockPriceDifference: any;
-  minimun: any;
-  maximum: any;
-  average: any;
+  public averageStock: any;
+  public Minimun = 'Minimum';
+  public Maximum = 'Maximum';
+  public Average = 'Average';
 
   constructor(private companyService: CompanyService,
     private stockService: StockService,
@@ -43,7 +41,7 @@ export class ManagestockComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getManageStockValue()  //getdata
+    this.getManageStockValue()        //getdata
     this.addStockFormGroupMethod()
   }
 
@@ -59,29 +57,32 @@ export class ManagestockComponent implements OnInit {
     if (!this.mangStockForm.valid) {
       this.snackBar.showSnackBar(`Please provide required values`, 'X');
     }
-    this.stockUserSubscription = this.stockService.searchStock(companyCode,startDate,endDate).subscribe((res: any) => {
-      if(res.success == true){
-        this.snackBar.successSnackBar(res.messages[0], 'X');
-         this.averageStock=res.result.stockDetails;
-         this.minimun=res.result.stockPriceDifference.minimum;
-         this.maximum=res.result.stockPriceDifference.maximum;
-         this.average=res.result.stockPriceDifference.average;
-      }else{
+    this.stockUserSubscription = this.stockService.searchStock(companyCode, startDate, endDate).subscribe((res: any) => {
+      if (res.success == true) {
+        // this.snackBar.successSnackBar(res.messages[0], 'X');
+        this.averageStock = res.result.stockDetails;
+        this.Minimun = res.result.stockPriceDifference.minimum;
+        this.Maximum = res.result.stockPriceDifference.maximum;
+        this.Average = res.result.stockPriceDifference.average;
+      } else {
         this.snackBar.showSnackBar(res.messages[0], 'X');
       }
-      
+
     })
   }
 
   public getManageStockValue() {
-  this.companyService.getCompany().subscribe(data => {   //getdata
+    this.companyService.getCompany().subscribe(data => {   //getdata
       this.stockdata = data.result;
-      // this.averageStock=data.result;
     });
   }
 
   public get m() {
     return this.mangStockForm.controls
+  }
+
+  ngOnDestroy(): void {
+    this.stockUserSubscription?.unsubscribe();
   }
 
 }

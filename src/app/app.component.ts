@@ -9,7 +9,8 @@ import { LoginService } from './login/login.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'estockmarket';
+
+  public title = 'estockmarket';
   public dasheadimg: string = 'assets/img/headne.jpg';
   public isOpen: boolean = false;
   public loginSubscription: any;

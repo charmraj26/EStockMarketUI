@@ -5,14 +5,14 @@
                 <p>Manage Company</p>
                 <p class="light">Add/Edit Company</p>
             </div>
-            <div class="mat-elevation-z10 create mt-5 mx-auto">
+            <div class="middelcomp create mt-5 mx-auto">
                 <span class="material-icons bar">poll</span>
                 <button class="btncolor btn btn-success" routerLink="/addcompany">
                     <mat-icon class="icon">add</mat-icon>COMPANY
                 </button>
             </div>
             <div>
-                <table class="table table-trapped ftable mt-5 mx-auto">
+                <table class="table table-trapped  ftable mt-5 mx-auto">
                     <thead class="tablehead">
                         <tr>
                             <th>Company Code</th>
@@ -34,14 +34,14 @@
                             <td>{{updateUserInfo.companyTurnover}}</td>
                             <td>{{updateUserInfo.latestStockPrice}}</td>
                             <td>
-                                <button class="btn btnsize" (click)="deleteCompany(updateUserInfo.companyCode)">
+                                <button class="btn btnsize" (click)="deleteCompany(updateUserInfo.companyCode,updateUserInfo.companyName)">
                                     <!-- <mat-icon class="del">delete_outline</mat-icon> -->
                                     <mat-icon class="del">delete_outline</mat-icon>
                                 </button>
                             </td>
                         </tr>
                     </tbody>
-                    <div *ngIf="companyList.length<1" class="cond">
+                    <div *ngIf="companyList?.length <1" class="cond">
                         <p colspan="8">No Data Available</p>
                     </div>
                 </table>

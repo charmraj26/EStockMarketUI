@@ -9,13 +9,13 @@ import { environment } from 'src/environments/environment';
 @Injectable()
 export class JWTInterceptor implements HttpInterceptor {
 
-    constructor(private loginService: LoginService, private inject:Injector){}
+    constructor(private inject:Injector){}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let loginService = this.inject.get(LoginService);
+        let loginService = this.inject.get(LoginService)
         let token = loginService.GetToken()
         let jwtToken = request.clone({
-            setHeaders:{
+            setHeaders: {
                 Authorization: `Bearer ` + token
             }
         });

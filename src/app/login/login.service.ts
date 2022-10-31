@@ -4,7 +4,6 @@ import { BehaviorSubject, map, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { loginUserData } from './login.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -25,14 +24,14 @@ export class LoginService implements OnInit {
   }
 
   public isLoggedIn() {
-    return localStorage.getItem('token') != null;  //jwt
+    return localStorage.getItem('token') != null;  //jwt-authGuard
   }
 
   public GetToken() {
     return localStorage.getItem('token') || '';  //jwt
   }
 
-  isLogged(): boolean {
+  public isLogged(): boolean {
     return localStorage.getItem('token') ? true : false;   //logoutbtn
   }
 
@@ -40,7 +39,6 @@ export class LoginService implements OnInit {
     localStorage.removeItem('token');      //logoutbtn
   }
 
-  
   public login = new BehaviorSubject(null);
   public getLogin = this.login.asObservable();  //login
   public setLogin(login: any) {
@@ -138,7 +136,7 @@ export class LoginService implements OnInit {
 //   // }
 
 //   // public getAllUserDetails(): Observable<any[]> {
-//   //   return this.http.get<any>(`${this.baseUrl}/userAllDetails`);    
+//   //   return this.http.get<any>(`${this.baseUrl}/userAllDetails`);
 //   // //   return of(this.userDetailsData);
 //   // }
 

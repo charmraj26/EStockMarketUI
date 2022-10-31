@@ -3,7 +3,7 @@
     <div class="pt-4 card-body">
       <img class="headimage" [src]="mycardimage" alt="">
       <div>
-        <form [formGroup]="loginForm" novalidate >
+        <form [formGroup]="loginForm" novalidate>
           <!-- User Name Form Control -->
           <mat-form-field class="pt-5" appearance="legacy">
             <mat-label> Username</mat-label>
@@ -16,11 +16,11 @@
             <mat-label>Password</mat-label>
             <input matInput type="Password" formControlName="passWord" placeholder="Password"
               [type]="hideEye ? 'password':'text'">
-             <span class="material-icons eyebtn pointer" matSuffix (click)="hideEye = !hideEye">
+            <span class="material-icons eyebtn pointer" matSuffix (click)="hideEye = !hideEye">
               {{hideEye ? 'visibility_off' : 'visibility'}}</span>
             <mat-error *ngIf="f['passWord'].getError('required')!=null">Enter Password</mat-error>
           </mat-form-field>
-          <!-- Password Form Control --> 
+          <!-- Password Form Control -->
           <!-- Action Buttons -->
           <div class="mb-3 pt-5">
             <button type="button" class="btn btn-info ms-5 regbtn" routerLink="/register">

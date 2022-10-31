@@ -13,17 +13,17 @@
           </mat-form-field>
           <mat-form-field class="pt-3" appearance="legacy">
             <mat-label>Password</mat-label>
-            <input matInput type="password"  placeholder="Password" formControlName="passWord"
-            [type]="hideEyep ? 'password' : 'text'">
-            <span matSuffix (click)="hideEyep=!hideEyep" class="material-icons eyebtn pointer"> 
+            <input matInput type="password" placeholder="Password" formControlName="passWord"
+              [type]="hideEyep ? 'password' : 'text'">
+            <span matSuffix (click)="hideEyep=!hideEyep" class="material-icons eyebtn pointer">
               {{hideEyep ? 'visibility_off' : 'visibility'}}</span>
             <mat-error *ngIf="r['passWord'].getError('required')!=null">Enter Password</mat-error>
           </mat-form-field>
           <mat-form-field class="pt-3" appearance="legacy">
             <mat-label>Confirm Password</mat-label>
-            <input matInput type="password" placeholder="Confirm Password" formControlName="surepassWord" 
-            [type]="hideEyesp ? 'password' : 'text'">
-           <span matSuffix (click)="hideEyesp=!hideEyesp" class="material-icons eyebtn pointer"> 
+            <input matInput type="password" placeholder="Confirm Password" formControlName="surepassWord"
+              [type]="hideEyesp ? 'password' : 'text'">
+            <span matSuffix (click)="hideEyesp=!hideEyesp" class="material-icons eyebtn pointer">
               {{ hideEyesp ? 'visibility_off' : 'visibility'}} </span>
             <mat-error *ngIf="r['surepassWord'].getError('required')!=null">Enter Confirm Password</mat-error>
             <mat-error *ngIf="r['surepassWord'].getError('MustMatch')!=null">Password Mismatch</mat-error>

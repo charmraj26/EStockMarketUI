@@ -22,7 +22,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { StockService } from './managestock/stock.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JWTInterceptor } from './jwt.interceptor';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DialogboxComponent } from './dialogbox/dialogbox.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -30,7 +32,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogboxComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     BrowserAnimationsModule,
     LoginModule,
     RegisterModule,
-    DashboardModule, 
+    DashboardModule,
     ManagecompanyModule,
     AddcompanyModule,
     HttpClientModule,
@@ -50,10 +53,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ManagestockModule,
     AddstockModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
+
   ],
-  providers: [LoginService,RegisterService,CompanyService,StockService,
-  { provide:HTTP_INTERCEPTORS, useClass:JWTInterceptor, multi: true }
+  providers: [LoginService, RegisterService, CompanyService, StockService,
+    { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

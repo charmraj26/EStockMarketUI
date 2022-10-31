@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { loginUserData } from './login.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { AppService } from '../app.service';
 
 @Component({
@@ -18,8 +17,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   public hideEye: boolean = true;
   public loginForm: FormGroup | any;
   public loginData: any;
-  private loginUserSubscription: any;
-  public responsedata: any;
+  public responseData: any;
+  public loginUserSubscription: any;
 
   // constructor start
   constructor(private router: Router,
@@ -54,20 +53,15 @@ export class LoginComponent implements OnInit, OnDestroy {
       loginData.userName = this.f.userName.value;
       loginData.passWord = this.f.passWord.value;
 
-      // this.loginService.setNewUserInfo({
-      //   userName: this.f.userName.value,
-      //   passWord: this.f.passWord.value,
-      // });
       this.loginUserSubscription = this.loginService.loginuser(loginData).subscribe((data: any) => {
         if (data.success == true) {
-          this.responsedata = data;
-          localStorage.setItem('token', this.responsedata.result.token);
+          this.responseData = data;
+          localStorage.setItem('token', this.responseData.result.token);
           this.loginService.setLogin(data);
-          // this.snackBar.showSnackBar(data.messages[0], 'X');
           this.router.navigate(['/dashboard']);
         }
         else {
-          this.snackBar.successSnackBar(data.messages[0], 'X');
+          this.snackBar.showSnackBar(data.messages[0], 'X');
         }
       })
     }
@@ -106,6 +100,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 
 
+
+
+
+
+      // this.loginService.setNewUserInfo({
+      //   userName: this.f.userName.value,
+      //   passWord: this.f.passWord.value,
+      // });
 
 //   public userlogin() {
 //   if (!this.loginForm.valid) {

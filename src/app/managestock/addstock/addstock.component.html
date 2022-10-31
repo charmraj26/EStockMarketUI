@@ -17,8 +17,8 @@
               <mat-form-field appearance="legacy">
                 <mat-label>Company</mat-label>
                 <mat-select placeholder="Company" formControlName="companyCode" #companyCode>
-                  <!-- <mat-option  value="0">companyCode</mat-option> -->
-                  <mat-option *ngFor="let stock of stockValue" [value]="stock.companyCode">{{stock.companyCode}}</mat-option>
+                  <mat-option *ngFor="let stock of stockValue" [value]="stock.companyCode">{{stock.companyName}}
+                  </mat-option>
                 </mat-select>
                 <mat-error *ngIf="s['companyCode'].getError('required')!=null">Required Company</mat-error>
               </mat-form-field>
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div>
-            <button (click)="addStock()" type="submit" class="btn savebtn mt-5 mb-5">
+            <button type="submit" class="btn savebtn mt-5 mb-5" (click)="addStock()">
               <mat-icon class="icon">done</mat-icon>SAVE
             </button>
           </div>

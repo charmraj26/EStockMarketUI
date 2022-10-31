@@ -4,8 +4,6 @@ import {  MatIconModule } from '@angular/material/icon';
 import { ManagecompanyComponent } from './managecompany.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [ManagecompanyComponent],
   imports: [

@@ -18,7 +18,7 @@ export class StockService {
   }
 
   public searchStock(companyCode: any, startDate: any, endDate: any): Observable<any> {
-    return this.http.get(this.addStockUrl + '/market/stock/get/' +  companyCode.value +'/' + startDate.value + '/' +endDate.value);
+    return this.http.get(this.addStockUrl + '/market/stock/get/' + companyCode.value + '/' + startDate.value + '/' + endDate.value);
   }
 
 }

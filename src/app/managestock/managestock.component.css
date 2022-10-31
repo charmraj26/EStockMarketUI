@@ -6,7 +6,6 @@
     color: red;
     margin-top: 10px;
     font-size: 60px;
-   
 }
 
 .btnsearch{
@@ -45,4 +44,7 @@ th{
 
 .tablebody{
     border-bottom: 1px solid grey;
+}
+.cond{
+	float: left;
 }

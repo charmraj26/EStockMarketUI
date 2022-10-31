@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
  
   public updateUserInfo: any;
   public userDetailsData: any;
-  public loginUserSubscription: any;
+  public dashUserSubscription: any;
   public latestStockPrice: any;
 
   constructor(private companyService: CompanyService) {}
@@ -23,10 +23,14 @@ export class DashboardComponent implements OnInit {
   }
 
   public getAllCompany() {
-    this.companyService.getCompany().subscribe(data => {
+    this.dashUserSubscription=  this.companyService.getCompany().subscribe(data => {
       console.log(data.result)
       this.latestStockPrice = data.result;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.dashUserSubscription?.unsubscribe();
   }
 
 }

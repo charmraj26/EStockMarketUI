@@ -12,8 +12,8 @@ import { companyUserData } from '../managecompany.model';
 })
 export class AddcompanyComponent implements OnInit {
 
-  public addForm: any;
   public addCompanySubscription: any;
+  public addForm: any;
   public addCompanyData: any;
  
   constructor(private router: Router, 

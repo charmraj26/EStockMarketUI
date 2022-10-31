@@ -12,6 +12,7 @@ import { AppService } from '../app.service';
 })
 
 export class RegisterComponent implements OnInit {
+
   public mycardimage: string = "/assets/img/headne.jpg"
   public registerForm: FormGroup | any;
   public hideEyep: boolean = true;
@@ -23,7 +24,6 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private registerService: RegisterService,
     private snackBar: AppService) {
-
   }
 
   ngOnInit(): void {

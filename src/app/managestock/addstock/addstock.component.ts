@@ -13,13 +13,15 @@ import { StockService } from '../stock.service';
   styleUrls: ['./addstock.component.css']
 })
 export class AddstockComponent implements OnInit {
-  public stockForm: any;
+
   public addStockSubscription: any;
+  public stockForm: any;
   public stockValue: any;
 
   constructor(private router: Router,
     private stockService: StockService,
-    private snackBar: AppService, private companyService: CompanyService) {
+    private snackBar: AppService,
+    private companyService: CompanyService) {
   }
 
   ngOnInit(): void {
@@ -45,8 +47,8 @@ export class AddstockComponent implements OnInit {
 
       this.addStockSubscription = this.stockService.addStock(addStockData).subscribe((data: any) => {
         if (data.success == true) {
-          this.snackBar.showSnackBar(data.messages[0], 'X')
-          this.router.navigate(['/dashboard']);
+          this.snackBar.successSnackBar(data.messages[0], 'X')
+          this.router.navigate(['/managestock']);
         }
         else {
           this.snackBar.showSnackBar(data.messages[0], 'X');

@@ -13,13 +13,13 @@
       <div>
         <form [formGroup]="addForm" novalidate>
           <div class="row">
-            <div class="col-md-4 col-sm-6 mt-5">
+            <div class="col-md-4 col-sm-6 mt-5 ">
               <mat-form-field appearance="legacy">
                 <mat-label>Company Code</mat-label>
                 <input matInput placeholder="Company Code" formControlName="companyCode" #companyCode>
                 <mat-error *ngIf="c['companyCode'].getError('required')!=null">Company Code is required</mat-error>
               </mat-form-field>
-              <mat-form-field  class="mt-5" appearance="legacy">
+              <mat-form-field class="mt-5" appearance="legacy">
                 <mat-label>Company Ceo</mat-label>
                 <input matInput placeholder="Company Ceo" formControlName="companyCeo" #companyCeo>
                 <mat-error *ngIf="c['companyCeo'].getError('required')!=null">Company Ceo is required</mat-error>
